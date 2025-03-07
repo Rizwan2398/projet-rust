@@ -1,6 +1,5 @@
-use rand::Rng;
-use std::collections::HashMap;
 use crate::robot::Robot;
+use rand::Rng;
 
 pub const MAP_SIZE: usize = 20;
 
@@ -38,7 +37,7 @@ impl Carte {
         Self { grille }
     }
 
-    /// Affichage amélioré de la carte avec des icônes
+    /// Affichage coloré de la carte et des robots
     pub fn afficher(&self, robots: &Vec<Robot>) {
         println!("\n======= 🌍 Carte de l'Exploration =======");
         let mut affichage = vec![vec!["⬜".to_string(); MAP_SIZE]; MAP_SIZE];
@@ -46,15 +45,15 @@ impl Carte {
         for (x, ligne) in self.grille.iter().enumerate() {
             for (y, case) in ligne.iter().enumerate() {
                 affichage[x][y] = match case {
-                    Some(Ressource::Energie) => "⚡".to_string(),
-                    Some(Ressource::Minerai) => "⛏".to_string(),
-                    Some(Ressource::LieuInteret) => "🔬".to_string(),
+                    Some(Ressource::Energie) => "\x1b[93m⚡\x1b[0m".to_string(), // Jaune
+                    Some(Ressource::Minerai) => "\x1b[91m⛏\x1b[0m".to_string(),  // Rouge
+                    Some(Ressource::LieuInteret) => "\x1b[96m🔬\x1b[0m".to_string(), // Cyan
                     None => "⬜".to_string(),
                 };
             }
         }
         for robot in robots {
-            affichage[robot.x][robot.y] = "🤖".to_string();
+            affichage[robot.x][robot.y] = "\x1b[92m🤖\x1b[0m".to_string(); // Vert
         }
         for ligne in affichage {
             for case in ligne {
@@ -63,5 +62,16 @@ impl Carte {
             println!();
         }
         println!("====================================\n");
+    }
+
+    /// Affichage des ressources collectées par les robots
+    pub fn afficher_ressources(robots: &Vec<Robot>) {
+        println!("\n📜 Résumé des ressources collectées :");
+        for robot in robots {
+            println!("🤖 Robot {} :", robot.id);
+            for (ressource, quantite) in &robot.capacite {
+                println!("  - {:?} : {}", ressource, quantite);
+            }
+        }
     }
 }

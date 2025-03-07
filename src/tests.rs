@@ -1,8 +1,8 @@
 #[cfg(test)]
 mod tests {
     use super::carte::Carte;
-    use super::robot::Robot;
     use super::carte::MAP_SIZE;
+    use super::robot::Robot;
 
     #[test]
     fn test_generation_carte() {
