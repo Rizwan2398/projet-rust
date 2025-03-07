@@ -1,3 +1,4 @@
+/// tester de push une branch locale sur github
 use crate::carte::{Carte, MAP_SIZE, Ressource};
 use rand::Rng;
 use std::collections::HashMap;
