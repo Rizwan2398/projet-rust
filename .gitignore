@@ -1,0 +1,51 @@
+# Ignorer le dossier de compilation
+/target/
+
+# Ignorer les fichiers temporaires de Rust
+**/*.rs.bk
+
+# Ignorer Cargo.lock pour les bibliothèques (si tu fais un "binary crate" tu peux le garder)
+/Cargo.lock
+
+# Fichiers d'édition
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Fichiers de backup d'éditeurs
+*~
+
+# MacOS files
+.DS_Store
+
+# Vscode settings (optionnel)
+.vscode/
+
+# Ignorer le dossier "dist" ou "build" si tu compiles des assets
+/dist/
+/build/
+
+# Fichiers de logs
+*.log
+
+# Ignorer les dumps de mémoire (juste au cas où)
+/core
+*.core
+
+# Pour Bevy (assets compilés, cache shader)
+/assets/*.png
+/assets/*.jpg
+/assets/*.ogg
+/assets/*.wav
+/assets/*.mp3
+/assets/*.glb
+/assets/*.gltf
+/assets/*.fbx
+/assets/*.obj
+/assets/*.blend
+/assets/*.ron
+/assets/*.bin
+
+# Bevy compiled shaders
+/.shaderc/
