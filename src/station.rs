@@ -2,6 +2,30 @@ use bevy::prelude::*;
 
 use crate::components::position::Position;
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn create_station_and_update_resources() {
+        // Test de création d'une station et ajout de ressources
+        let mut station = Station {
+            energy: 0,
+            minerals: 0,
+            scientific_data: 0,
+        };
+
+        station.energy += 10;
+        station.minerals += 5;
+        station.scientific_data += 3;
+
+        assert_eq!(station.energy, 10);
+        assert_eq!(station.minerals, 5);
+        assert_eq!(station.scientific_data, 3);
+    }
+}
+
+
 #[derive(Component)]
 pub struct Station {
     pub energy: u32,

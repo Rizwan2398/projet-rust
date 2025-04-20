@@ -1,5 +1,21 @@
 use noise::{NoiseFn, Perlin};
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn noise_generator_returns_value() {
+        // Ce test vérifie que NoiseGenerator retourne une valeur
+        let noise = NoiseGenerator::new(42);
+        let value = noise.get_value(10.0, 20.0);
+
+        // On s'assure simplement que la valeur est dans une plage réaliste
+        assert!(value >= -1.0 && value <= 1.0);
+    }
+}
+
+
 pub struct NoiseGenerator {
     perlin: Perlin,
     seed: u32,

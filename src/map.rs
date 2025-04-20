@@ -6,6 +6,19 @@ pub const MAP_WIDTH: u32 = 50;
 pub const MAP_HEIGHT: u32 = 30;
 pub const TILE_SIZE: f32 = 16.0;
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn create_tile_and_check_type() {
+        // Test de création d'un Tile et vérification de son type
+        let tile = Tile { tile_type: TileType::Energy };
+        assert_eq!(tile.tile_type, TileType::Energy);
+    }
+}
+
+
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TileType {
     Empty,
