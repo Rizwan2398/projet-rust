@@ -1,6 +1,6 @@
+use crate::utils::noise::NoiseGenerator;
 use bevy::prelude::*;
 use rand::Rng;
-use crate::utils::noise::NoiseGenerator;
 
 pub const MAP_WIDTH: u32 = 50;
 pub const MAP_HEIGHT: u32 = 30;
@@ -29,7 +29,7 @@ impl Plugin for MapPlugin {
 }
 
 fn spawn_map(mut commands: Commands) {
-    let noise = NoiseGenerator::new(42); // Seed fixe pour reproductibilité
+    let noise = NoiseGenerator::new(42);
     let mut rng = rand::thread_rng();
 
     for y in 0..MAP_HEIGHT {
@@ -39,7 +39,6 @@ fn spawn_map(mut commands: Commands) {
             let tile_type = if noise_value < -0.2 {
                 TileType::Obstacle
             } else if noise_value > 0.4 {
-                // Avec un peu d'aléatoire
                 match rng.gen_range(0..10) {
                     0 => TileType::Energy,
                     1 => TileType::Mineral,
@@ -62,14 +61,10 @@ fn spawn_map(mut commands: Commands) {
                 SpriteBundle {
                     sprite: Sprite {
                         color,
-                        custom_size: Some(Vec2::splat(TILE_SIZE - 1.0)), // Petite marge pour séparation visuelle
+                        custom_size: Some(Vec2::splat(TILE_SIZE - 1.0)),
                         ..Default::default()
                     },
-                    transform: Transform::from_xyz(
-                        x as f32 * TILE_SIZE,
-                        y as f32 * TILE_SIZE,
-                        0.0,
-                    ),
+                    transform: Transform::from_xyz(x as f32 * TILE_SIZE, y as f32 * TILE_SIZE, 0.0),
                     ..Default::default()
                 },
                 Tile { tile_type },

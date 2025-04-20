@@ -3,7 +3,7 @@ use rand::Rng;
 
 use crate::components::position::Position;
 use crate::components::robot_type::RobotType;
-use crate::map::{MAP_WIDTH, MAP_HEIGHT, TILE_SIZE};
+use crate::map::{MAP_HEIGHT, MAP_WIDTH, TILE_SIZE};
 
 pub fn robot_movement_system(
     mut query: Query<(&mut Transform, &mut Position, &RobotType)>,
@@ -12,8 +12,7 @@ pub fn robot_movement_system(
     let mut rng = rand::thread_rng();
 
     for (mut transform, mut position, robot_type) in query.iter_mut() {
-        // Décider si on bouge (50% de chance chaque frame)
-        if rng.gen_bool(0.02) { // Baisse la fréquence de mouvement
+        if rng.gen_bool(0.02) {
             let (dx, dy) = match rng.gen_range(0..4) {
                 0 => (1, 0),  // Droite
                 1 => (-1, 0), // Gauche
