@@ -13,7 +13,7 @@ pub struct StationPlugin;
 
 impl Plugin for StationPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Startup, spawn_station); // ✅ ici
+        app.add_systems(Startup, spawn_station);
     }
 }
 
@@ -21,11 +21,11 @@ fn spawn_station(mut commands: Commands) {
     commands.spawn((
         SpriteBundle {
             sprite: Sprite {
-                color: Color::rgb(1.0, 1.0, 1.0), // Blanc pour la station
-                custom_size: Some(Vec2::splat(32.0)), // Plus grande
+                color: Color::rgb(1.0, 1.0, 1.0),
+                custom_size: Some(Vec2::splat(32.0)),
                 ..Default::default()
             },
-            transform: Transform::from_xyz(0.0, 0.0, 2.0), // Toujours au centre
+            transform: Transform::from_xyz(0.0, 0.0, 2.0),
             ..Default::default()
         },
         Station {
@@ -33,6 +33,6 @@ fn spawn_station(mut commands: Commands) {
             minerals: 0,
             scientific_data: 0,
         },
-        Position { x: 0, y: 0 }, // Station en (0,0)
+        Position { x: 0, y: 0 },
     ));
 }
