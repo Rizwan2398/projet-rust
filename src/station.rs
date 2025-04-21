@@ -8,7 +8,6 @@ mod tests {
 
     #[test]
     fn create_station_and_update_resources() {
-        // Test de création d'une station et ajout de ressources
         let mut station = Station {
             energy: 0,
             minerals: 0,

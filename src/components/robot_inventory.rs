@@ -6,7 +6,6 @@ mod tests {
 
     #[test]
     fn default_robot_inventory() {
-        // Vérifie qu'un robot nouvellement créé a un inventaire vide
         let inventory = RobotInventory {
             energy: 0,
             minerals: 0,
@@ -17,7 +16,6 @@ mod tests {
         assert_eq!(inventory.scientific_data, 0);
     }
 }
-
 
 #[derive(Component, Debug, Clone, Copy)]
 pub struct RobotInventory {

@@ -12,12 +12,12 @@ mod tests {
 
     #[test]
     fn create_tile_and_check_type() {
-        // Test de création d'un Tile et vérification de son type
-        let tile = Tile { tile_type: TileType::Energy };
+        let tile = Tile {
+            tile_type: TileType::Energy,
+        };
         assert_eq!(tile.tile_type, TileType::Energy);
     }
 }
-
 
 #[derive(Component, Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TileType {

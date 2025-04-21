@@ -7,7 +7,6 @@ mod tests {
 
     #[test]
     fn robot_changes_state_to_returning() {
-        // Ce test vérifie que le robot passe à ReturningToStation après 5 ressources
 
         let inventory = RobotInventory {
             energy: 2,

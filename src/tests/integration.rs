@@ -2,8 +2,6 @@ use essaim_robots::components::{robot_inventory::RobotInventory, robot_state::Ro
 
 #[test]
 fn robot_delivers_resources() {
-    // Ce test simule un robot livrant ses ressources à la station
-
     let mut station_energy = 0;
     let mut robot_inventory = RobotInventory {
         energy: 5,
@@ -11,7 +9,6 @@ fn robot_delivers_resources() {
         scientific_data: 0,
     };
 
-    // Simuler livraison
     station_energy += robot_inventory.energy;
     robot_inventory.energy = 0;
 
