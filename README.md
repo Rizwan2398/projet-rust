@@ -71,8 +71,8 @@ Ce projet propose une simulation en 2D d'un essaim de robots évoluant sur une c
 1. **Cloner le dépôt**
 
    ```bash
-   git clone https://votre-repo-git/essaim-robots.git
-   cd essaim-robots
+   git clone https://github.com/Rizwan2398/projet-rust
+   cd projet-rust
    ```
 
 2. **Compiler & exécuter**
