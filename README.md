@@ -122,7 +122,4 @@ cargo test
 
 Les contributions sont les bienvenues :
 
-1. Fork du projet
-2. Branche `feature/ma-fonctionnalite`
-3. Commit & push
-4. Ouvrir une pull request
+
